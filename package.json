@@ -1,0 +1,61 @@
+{
+  "name": "otus-best-courses-ever",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "npx nodemon index.js",
+    "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YFdevel/Otus-Best-Courses-Ever.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YFdevel/Otus-Best-Courses-Ever/issues"
+  },
+  "homepage": "https://github.com/YFdevel/Otus-Best-Courses-Ever#readme",
+  "devDependencies": {
+    "@jest/environment": "^29.7.0",
+    "@jest/globals": "^29.7.0",
+    "@shelf/jest-mongodb": "^4.2.0",
+    "axios": "^1.6.7",
+    "jest": "^29.7.0",
+    "node-fetch": "^3.3.2",
+    "nodemon": "^3.0.3",
+    "supertest": "^6.3.4"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "common-es": "^1.0.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.2",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.3",
+    "express-fingerprint": "^1.2.2",
+    "express-session": "^1.18.0",
+    "helmet": "^7.1.0",
+    "jest-mock-axios": "^4.7.3",
+    "jsonwebtoken": "latest",
+    "jwt-simple": "^0.5.6",
+    "mime": "^4.0.1",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.1.0",
+    "mustache": "^4.2.0",
+    "mustache-express": "^1.3.2",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "swagger": "^0.7.5",
+    "swagger-ui-express": "^5.0.0",
+    "url": "^0.11.3",
+    "uuid": "^9.0.1"
+  }
+}
