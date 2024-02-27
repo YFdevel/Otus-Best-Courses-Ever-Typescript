@@ -1,0 +1,20 @@
+<form action="https://localhost:3001/users" method="post" class="auth-form-up">
+    <h2>Зарегистрироваться</h2>
+    <input type="text" name="firstName" class="form-control" pattern="[A-Za-zА-Яа-я]{2,26}" placeholder="Имя" required="">
+    <input type="text" name="lastName" class="form-control" pattern="[A-Za-zА-Яа-я]{2,26}" placeholder="Фамилия" required="">
+    <input type="email" name="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Email" required="">
+    <input type="password" name="password" class="form-control" pattern="[A-Za-z0-9_/\-$%]{8,12}" placeholder="Пароль" required="">
+
+    <button type="submit" class="submit-btn form-control" id="form-submit">Начнем</button>
+    <button type="button" class="form-link-up">Войти, если уже зарегистрированы</button>
+</form>
+<form action="https://localhost:3001/users/login" method="post" class="auth-form-in">
+    <h2>Войти</h2>
+
+    <input type="email" name="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Email" required="">
+
+    <input type="password" name="password" class="form-control" pattern="[A-Za-z0-9_/\-$%]{8,12}" placeholder="Пароль" required="">
+
+    <button type="submit" class="submit-btn form-control" id="form-submit">Вперед</button>
+    <button type="button" class="form-link-in">Еще не зарегистрированы?</button>
+</form>

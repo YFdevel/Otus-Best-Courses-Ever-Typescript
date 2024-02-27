@@ -1,0 +1,62 @@
+import * as uuid from "uuid";
+import path from 'path';
+import {getGlobals} from "common-es";
+import mime from "mime";
+import {Request} from "express";
+import fileUpload, {UploadedFile} from "express-fileupload";
+const { __dirname, __filename } = getGlobals(import.meta.url);
+
+export class FileService {
+    static  async  saveImageFile(file:UploadedFile):Promise<string|undefined> {
+        let fileExtension;
+        try{
+            const mimeType=mime.getType(file.name);
+            if (mimeType != null) {
+               fileExtension = mimeType.slice(mimeType.indexOf("/") + 1);
+                if (fileExtension.match(/(jpg|jpeg|png|gif)$/)) {
+                    const fileName = uuid.v4() + `.${fileExtension}`;
+                    const filePath = path.resolve(__dirname, '../static/assets/', fileName);
+                    await file.mv(filePath);
+                    return fileName;
+                }
+            }
+        }catch(err){
+            console.log(err)
+        }
+    }
+    static  async saveVideoFile(file: UploadedFile):Promise<string | undefined> {
+        let fileExtension;
+        try{
+            const mimeType=mime.getType(file.name);
+            if (mimeType != null) {
+               fileExtension = mimeType.slice(mimeType.indexOf("/") + 1);
+                if (fileExtension.match(/(mp4|avi|mkv|mov)$/)) {
+                    const fileName = uuid.v4() + `.${fileExtension}`;
+                    const filePath = path.resolve(__dirname, '../static/assets/', fileName);
+                    await file.mv(filePath);
+                    return fileName;
+                }
+            }
+        }catch(err){
+            console.log(err)
+        }
+    }
+    static  async  saveTextFile(file:UploadedFile):Promise<string|undefined> {
+        let fileExtension;
+        try{
+            const mimeType=mime.getType(file.name);
+            if (mimeType != null) {
+                fileExtension = mimeType.slice(mimeType.indexOf("/") + 1);
+                if (fileExtension.match(/(doc|docx|txt|rtf|pdf)$/)) {
+                    const fileName = uuid.v4() + `.${fileExtension}`;
+                    const filePath = path.resolve(__dirname, '../static/assets/', fileName);
+                    await file.mv(filePath);
+                    return fileName;
+                }
+            }
+        }catch(err){
+            console.log(err)
+        }
+    }
+}
+
