@@ -1,4 +1,3 @@
-"use strict";
 // import { agent as _request } from "supertest";
 // import assert from 'assert';
 // import fs from "fs";
@@ -12,6 +11,15 @@
 // const mockedAxios = axios as jest.Mocked<typeof axios>;
 //
 //
+
+
+import {describe, expect, test} from "@jest/globals";
+
+describe('sum of 2 numbers', () => {
+    test(' 2 + 2 equal 4', () => {
+        expect(2 + 2).toEqual(4)
+    });
+});
 // // const {__dirname, __filename} = getGlobals(import.meta.url);
 // // const menu = fs.readFileSync(path.join(__dirname, "..", "/views/menu.mustache")).toString();
 //

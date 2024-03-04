@@ -3,7 +3,8 @@ import {ObjectId} from "mongodb";
 import {FileService} from "../handlers/fileService"
 import {ILessonCreateDto} from "../dto/lesson.dto";
 import {FileArray, UploadedFile} from "express-fileupload";
-import {InsertOneResult, Document} from "mongodb";
+import {InsertOneResult, Document, Filter} from "mongodb";
+
 
 
 export const create = async (body:ILessonCreateDto,files:FileArray|null|undefined):Promise<Document|string> => {
@@ -29,8 +30,8 @@ export const create = async (body:ILessonCreateDto,files:FileArray|null|undefine
         updatedAt: new Date(),
         comments: []
     });
-    await usersCollection.findOneAndUpdate({_id: new ObjectId(authorId)},  { $push: { lessons: newLesson.insertedId } });
-    await coursesCollection.findOneAndUpdate({_id: new ObjectId(courseId)},  { $push: { lessons: newLesson.insertedId } });
+    await usersCollection.findOneAndUpdate({_id: new ObjectId(authorId) as Filter<Document>},  { $push: { lessons: newLesson.insertedId } });
+    await coursesCollection.findOneAndUpdate({_id: new ObjectId(courseId)  as Filter<Document>},  { $push: { lessons: newLesson.insertedId } });
     return newLesson;
 };
 
