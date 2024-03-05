@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Проект Best Courses Ever</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="Best Courses Ever">
+    <meta name="keywords" content="Best Courses Ever">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+<!-- MENU -->
+<section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon icon-bar"></span>
+                <span class="icon icon-bar"></span>
+                <span class="icon icon-bar"></span>
+            </button>
+
+            <!-- lOGO TEXT HERE -->
+            <a href="/" class="navbar-brand">Best Courses Ever</a>
+        </div>
+        <!-- MENU LINKS -->
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-nav-first">
+                <li><a href="/#top" class="smoothScroll">Главная</a></li>
+                <li><a href="/#about" class="smoothScroll">О нас</a></li>
+                <li><a href="/#team" class="smoothScroll">Наши авторы</a></li>
+                <li><a href="/courses" class="smoothScroll">Курсы</a></li>
+                <li><a href="/#testimonial" class="smoothScroll">Отзывы</a></li>
+                <li><a href="/#contact" class="smoothScroll">Контакты</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><i class="fa fa-phone"></i> +77777777</a></li>
+                <li class="user-profile-btn" id="user-profile-btn"><a href="/users/profile"><i class="fa fa-user"
+                                                                                               aria-hidden="true"></i></a>
+                </li>
+                <li class="log-out-btn" id="log-out-btn"><a href="/users/logout"><i class="fa fa-sign-out"
+                                                                                    aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<div class="container" id="lessons-page-wrapper">
+
+    <section id="main-body-container">
+
+        {{#lessons.length}}
+            <article id="main-article">
+                <div id="main-video-lesson">
+                    <video width="100%" height="100%" controls>
+                        <source src="#" type="video/mp4">
+                        <source src="#" type="video/ogg">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <h2 id="main-title"></h2>
+                <p id="main-desc"></p>
+                <span id="main-id" class="hidden"></span>
+
+                <button class="show-comments" id="show-comments-btn" onclick="hideComments(this)">
+                    <span>Посмотреть комментарии</span>
+                    <img src="/images/downarrow.png"/>
+                </button>
+                <div class="comments-container-main hidden" id="comments-container-main"></div>
+            </article>
+
+        <aside id='sidebar'>
+            {{#lessons}}
+                <article class="slider-article" onclick="makeLessonMain(this)">
+                    <div class="slider-article-video">
+                        <video width="100%" height="100%" controls>
+                            <source src="/assets/{{videoUrl}}" type="video/mp4">
+                            <source src="/assets/{{videoUrl}}" type="video/avi">
+                            <source src="/assets/{{videoUrl}}" type="video/mkv">
+                            <source src="/assets/{{videoUrl}}" type="video/mov">
+                            <source src="/assets/{{videoUrl}}" type="video/ogg">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <h3 class="slider-article-title">{{title}}</h3>
+                    <div class="hidden">
+                        <p class="slider-article-desc">{{description}}</p>
+                        <span class="slider-article-id">{{_id}}</span>
+                        <div class="comments-container">
+                            <h4>Комментарии</h4>
+                            <div class="comments-list">
+                                {{#comments.length}}
+                                    {{#comments}}
+                                        <div class="comments-content">
+                                            <h6 class="comments-title">{{title}}</h6>
+                                            <p class="comments-message">{{message}}</p>
+                                            <time class="comments-date">{{startedAt}}</time>
+                                        </div>
+                                    {{/comments}}
+                                {{/comments.length}}
+                                {{^comments.length}}
+                                    <p>Комментариев нет</p>
+                                {{/comments.length}}
+                            </div>
+                            <form class="comments-form" action="/comments" method="post" enctype="multipart/form-data">
+                                <h5 class="comments-form-title">Добавить комментарий</h5>
+                                <input name="courseId" type="text" value="{{courseId}}" class="visually-hidden">
+                                <input name="authorId" type="text" value="{{authorId}}" class="visually-hidden">
+                                <input name="lessonId" type="text" value="{{_id}}" class="visually-hidden">
+                                <input type="text" name="title" placeholder="Краткий заголовок">
+                                <textarea class="comments-textarea" name="message" id="message"
+                                          placeholder="Текст комментария"></textarea>
+                                <input type="submit" class="comments-form-btn" id="comments-btn" value="Отправить"/>
+                            </form>
+                        </div>
+                    </div>
+                </article>
+            {{/lessons}}
+        {{/lessons.length}}
+
+        {{^lessons.length}}
+            <p class="lessons-empty">Список доступных уроков пуст</p>
+        {{/lessons.length}}
+    </aside>
+
+    </section>
+
+</div>
+
+{{> footer }}
+
+
+<!-- SCRIPTS -->
+<script src="/js/axios.min.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/smoothscroll.js"></script>
+<script src="/js/custom.js"></script>
+<script src="/js/script.js"></script>
+<script src="/js/lessons.js"></script>
+<script src="/js/check-cookie.js"></script>
+</body>
+</html>
