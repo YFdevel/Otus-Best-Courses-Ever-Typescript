@@ -1,12 +1,12 @@
-import express,{Application, Request, Response, NextFunction, ErrorRequestHandler} from "express";
-import https from "https";
-import fs from "fs";
+import {Application, Request, Response, NextFunction, ErrorRequestHandler} from "express";
+import express from "express";
+import https, {createServer} from "https";
+import {readFileSync} from "fs";
 import mustache from "mustache";
 import mustacheExpress from "mustache-express";
 import cors from "cors";
-import * as dotenv from "dotenv";
+import {config} from "dotenv";
 import fileUpload from "express-fileupload";
-import { getGlobals } from "common-es";
 import cookieParser from "cookie-parser";
 import swaggerUi from "swagger-ui-express";
 import {swaggerDocument}  from "./swagger/openapi";
@@ -16,17 +16,18 @@ import usersRouter from "./controllers/users.controller";
 import commentsRouter from "./controllers/comments.controller";
 import reviewsRouter from "./controllers/reviews.controller";
 import {coursesCollection, connectDatabase} from "./services/database.service";
-dotenv.config();
-const { __dirname, __filename } = getGlobals(import.meta.url);
-const key = fs.readFileSync('ssl/key.pem');
-const cert = fs.readFileSync('ssl/cert.pem');
-export const app:Application = express();
+import * as path from "node:path";
+config();
+export let dirName=path.dirname(process.argv[1]);
+const key = readFileSync('ssl/key.pem');
+const cert = readFileSync('ssl/cert.pem');
+export const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(cors({credentials:true, origin:process.env.CLIENT_URL}));
-app.use(express.static(`${__dirname}/static`));
-app.set('views', `${__dirname}/views`);
+app.use(express.static(`${dirName}/static`));
+app.set('views', `${dirName}/views`);
 app.set('view engine', 'mustache');
 app.engine('mustache', mustacheExpress());
 app.use(fileUpload({}));
@@ -49,9 +50,9 @@ const errorHandler: ErrorRequestHandler = (err:any, req:Request, res:Response, n
 };
 app.use(errorHandler);
 
-export const server = https.createServer({key: key, cert: cert }, app);
+export const server = createServer({key: key, cert: cert }, app);
 
-const start = async () => {
+export const start = async () => {
         try {
              await connectDatabase();
             server.listen(process.env.SERVER_PORT

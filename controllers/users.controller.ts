@@ -1,5 +1,5 @@
-import express, {NextFunction, Request, Response} from "express";
-import dotenv from "dotenv";
+import express, {Router, NextFunction, Request, Response} from "express";
+import {config} from "dotenv";
 import {create} from "../services/users.service";
 import {usersCollection, refreshSessionsCollection,coursesCollection} from "../services/database.service";
 import {getAll, findById, updateOne, deleteOne,findByAuthorId} from "../handlers/servicesHandlers";
@@ -16,8 +16,8 @@ import {CookieOptions} from "express";
 import {Document} from "mongodb";
 
 
-dotenv.config();
-const usersRouter = express.Router();
+config();
+const usersRouter = Router();
 
 usersRouter.post("/", async (req:Request, res:Response):Promise<void> => {
     const answer = await create(req.body);

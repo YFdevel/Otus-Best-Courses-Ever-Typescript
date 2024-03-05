@@ -2,9 +2,7 @@ import {afterAll, beforeAll, describe, test, expect} from "@jest/globals";
 import * as dotenv from "dotenv";
 import * as mongoDB from "mongodb";
 import {Document} from "mongodb";
-import {lessonsCollection, usersCollection} from "../services/database.service";
-import {ObjectId} from "mongodb";
-import {Filter} from "mongodb";
+
 
 
 dotenv.config();

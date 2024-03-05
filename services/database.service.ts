@@ -1,9 +1,10 @@
-import mongodb from "mongodb";
-import dotenv from "dotenv";
+import * as mongodb from "mongodb";
+import * as dotenv from "dotenv";
+import * as mongoDB from "mongodb";
 dotenv.config();
 
-const connection = new mongodb.MongoClient(process.env.MONGO_AUTH_STRING as string);
-const db = connection.db("courses");
+const connection: mongoDB.MongoClient = new mongodb.MongoClient(process.env.MONGO_AUTH_STRING as string);
+const db: mongoDB.Db = connection.db("courses");
 export const usersCollection = db.collection("users");
 export const coursesCollection = db.collection("courses");
 export const lessonsCollection = db.collection("lessons");

@@ -1,53 +1,63 @@
-import express from "express";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+import { Router } from "express";
 import { create } from "../services/comments.service";
 import { commentsCollection } from "../services/database.service";
 import { getAll, findById, updateOne, deleteOne, findByAuthorId, findByLessonId } from "../handlers/servicesHandlers";
 import { checkAuth } from "../handlers/checkAccess";
-const commentsRouter = express.Router();
-commentsRouter.post("/", checkAuth, async (req, res, next) => {
-    const answer = await create(req.body, req["user"]?.id);
+const commentsRouter = Router();
+commentsRouter.post("/", checkAuth, (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
+    const answer = yield create(req.body, (_a = req["user"]) === null || _a === void 0 ? void 0 : _a.id);
     res.status(201).redirect(`../lessons/course/${req.body.courseId}`);
-});
-commentsRouter.get("/", async (req, res) => {
-    const answer = await getAll(commentsCollection);
+}));
+commentsRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const answer = yield getAll(commentsCollection);
     res.status(200).send(answer);
-});
-commentsRouter.get("/:id", async (req, res) => {
+}));
+commentsRouter.get("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
-    const answer = await findById(id, commentsCollection);
+    const answer = yield findById(id, commentsCollection);
     if (!answer) {
         res.sendStatus(404);
     }
     else {
         res.status(200).send(answer);
     }
-});
-commentsRouter.get("/author/:id", async (req, res) => {
+}));
+commentsRouter.get("/author/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
-    const answer = await findByAuthorId(id, commentsCollection);
+    const answer = yield findByAuthorId(id, commentsCollection);
     res.status(200).send(answer);
-});
-commentsRouter.get("/lesson/:id", async (req, res) => {
+}));
+commentsRouter.get("/lesson/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
-    const answer = await findByLessonId(id, commentsCollection);
+    const answer = yield findByLessonId(id, commentsCollection);
     res.status(200).send(answer);
-});
-commentsRouter.patch("/:id", async (req, res) => {
-    const answer = await updateOne(req.params.id, req.body, commentsCollection);
+}));
+commentsRouter.patch("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const answer = yield updateOne(req.params.id, req.body, commentsCollection);
     if (!answer) {
         res.sendStatus(404);
     }
     else {
         res.status(201).send(answer);
     }
-});
-commentsRouter.delete("/:id", async (req, res) => {
-    const answer = await deleteOne(req.params.id, commentsCollection);
+}));
+commentsRouter.delete("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const answer = yield deleteOne(req.params.id, commentsCollection);
     if (!answer) {
         res.sendStatus(404);
     }
     else {
         res.status(200).send(answer);
     }
-});
+}));
 export default commentsRouter;
