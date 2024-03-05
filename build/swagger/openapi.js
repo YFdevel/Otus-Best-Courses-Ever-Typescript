@@ -356,7 +356,7 @@ export const swaggerDocument = {
                         }
                     }
                 ],
-                "description": "parameter accessToken just for test",
+                "description": "parameter accessToken just for __tests__",
                 "security": {
                     "cookieAuth": []
                 },
@@ -384,7 +384,7 @@ export const swaggerDocument = {
                         }
                     }
                 ],
-                "description": "parameter accessToken just for test",
+                "description": "parameter accessToken just for __tests__",
                 "security": {
                     "cookieAuth": []
                 },
@@ -443,7 +443,7 @@ export const swaggerDocument = {
                         }
                     }
                 ],
-                "description": "parameter id just for test",
+                "description": "parameter id just for __tests__",
                 "responses": {
                     "201": {
                         "description": "OK"
@@ -470,7 +470,7 @@ export const swaggerDocument = {
                         }
                     }
                 ],
-                "description": "parameter id just for test",
+                "description": "parameter id just for __tests__",
                 "responses": {
                     "200": {
                         "description": "OK"
@@ -497,7 +497,7 @@ export const swaggerDocument = {
                         }
                     }
                 ],
-                "description": "parameter id just for test",
+                "description": "parameter id just for __tests__",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -551,7 +551,7 @@ export const swaggerDocument = {
                         }
                     }
                 ],
-                "description": "parameter id just for test",
+                "description": "parameter id just for __tests__",
                 "responses": {
                     "201": {
                         "description": "OK"
@@ -655,7 +655,7 @@ export const swaggerDocument = {
                         }
                     }
                 ],
-                "description": "parameter id just for test",
+                "description": "parameter id just for __tests__",
                 "responses": {
                     "201": {
                         "description": "OK"
@@ -682,7 +682,7 @@ export const swaggerDocument = {
                         }
                     }
                 ],
-                "description": "parameter id just for test",
+                "description": "parameter id just for __tests__",
                 "responses": {
                     "200": {
                         "description": "OK"
@@ -702,7 +702,7 @@ export const swaggerDocument = {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "description": "simple parameter just for test",
+                        "description": "simple parameter just for __tests__",
                         "schema": {
                             "type": "string",
                             "example": "1"
@@ -756,7 +756,7 @@ export const swaggerDocument = {
                         }
                     }
                 ],
-                "description": "parameter id just for test",
+                "description": "parameter id just for __tests__",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -869,7 +869,7 @@ export const swaggerDocument = {
                         }
                     }
                 ],
-                "description": "parameter id just for test",
+                "description": "parameter id just for __tests__",
                 "responses": {
                     "201": {
                         "description": "OK"
@@ -896,7 +896,7 @@ export const swaggerDocument = {
                         }
                     }
                 ],
-                "description": "parameter id just for test",
+                "description": "parameter id just for __tests__",
                 "responses": {
                     "200": {
                         "description": "OK"
@@ -923,7 +923,7 @@ export const swaggerDocument = {
                         }
                     }
                 ],
-                "description": "parameter id just for test",
+                "description": "parameter id just for __tests__",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -952,7 +952,7 @@ export const swaggerDocument = {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "description": "simple parameter just for test",
+                        "description": "simple parameter just for __tests__",
                         "schema": {
                             "type": "string",
                             "example": "1"
@@ -997,7 +997,7 @@ export const swaggerDocument = {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "description": "simple parameter just for test",
+                        "description": "simple parameter just for __tests__",
                         "schema": {
                             "type": "string",
                             "example": "1"
@@ -1030,7 +1030,7 @@ export const swaggerDocument = {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "description": "simple parameter just for test",
+                        "description": "simple parameter just for __tests__",
                         "schema": {
                             "type": "string",
                             "example": "1"
@@ -1160,7 +1160,7 @@ export const swaggerDocument = {
                         }
                     }
                 ],
-                "description": "parameter id just for test",
+                "description": "parameter id just for __tests__",
                 "responses": {
                     "201": {
                         "description": "OK"
@@ -1187,7 +1187,7 @@ export const swaggerDocument = {
                         }
                     }
                 ],
-                "description": "parameter id just for test",
+                "description": "parameter id just for __tests__",
                 "responses": {
                     "200": {
                         "description": "OK"
@@ -1214,7 +1214,7 @@ export const swaggerDocument = {
                         }
                     }
                 ],
-                "description": "parameter id just for test",
+                "description": "parameter id just for __tests__",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -1243,7 +1243,7 @@ export const swaggerDocument = {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "description": "simple parameter just for test",
+                        "description": "simple parameter just for __tests__",
                         "schema": {
                             "type": "string",
                             "example": "1"
@@ -1278,7 +1278,7 @@ export const swaggerDocument = {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "description": "simple parameter just for test",
+                        "description": "simple parameter just for __tests__",
                         "schema": {
                             "type": "string",
                             "example": "1"
@@ -1407,7 +1407,7 @@ export const swaggerDocument = {
                         }
                     }
                 ],
-                "description": "parameter id just for test",
+                "description": "parameter id just for __tests__",
                 "responses": {
                     "201": {
                         "description": "OK"
@@ -1434,7 +1434,7 @@ export const swaggerDocument = {
                         }
                     }
                 ],
-                "description": "parameter id just for test",
+                "description": "parameter id just for __tests__",
                 "responses": {
                     "200": {
                         "description": "OK"
@@ -1461,7 +1461,7 @@ export const swaggerDocument = {
                         }
                     }
                 ],
-                "description": "parameter id just for test",
+                "description": "parameter id just for __tests__",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -1490,7 +1490,7 @@ export const swaggerDocument = {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "description": "simple parameter just for test",
+                        "description": "simple parameter just for __tests__",
                         "schema": {
                             "type": "string",
                             "example": "1"
@@ -1525,7 +1525,7 @@ export const swaggerDocument = {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "description": "simple parameter just for test",
+                        "description": "simple parameter just for __tests__",
                         "schema": {
                             "type": "string",
                             "example": "1"

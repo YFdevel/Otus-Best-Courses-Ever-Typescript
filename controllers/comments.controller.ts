@@ -1,9 +1,9 @@
-import express, {NextFunction, Request, Response} from "express";
+import express, {Router, NextFunction, Request, Response} from "express";
 import {create} from "../services/comments.service";
 import {commentsCollection} from "../services/database.service";
 import {getAll,findById,updateOne,deleteOne, findByAuthorId,findByLessonId} from "../handlers/servicesHandlers";
 import {checkAuth} from "../handlers/checkAccess";
-const commentsRouter = express.Router();
+const commentsRouter = Router();
 
 commentsRouter.post("/", checkAuth, async (req:Request, res:Response, next:NextFunction):Promise<void> => {
     const answer = await create(req.body, req["user"]?.id);

@@ -1,4 +1,4 @@
-import express, {Request, Response} from "express";
+import express, {Router, Request, Response} from "express";
 import {create, getCommentsGroupByLesson} from "../services/lessons.service";
 import {lessonsCollection, commentsCollection} from "../services/database.service";
 import {
@@ -13,7 +13,7 @@ import {
 import {checkAuth} from "../handlers/checkAccess";
 import fileUpload from "express-fileupload";
 
-const lessonsRouter = express.Router();
+const lessonsRouter = Router();
 
 lessonsRouter.post("/", async (req:Request, res:Response):Promise<void> => {
     const answer = await create(req.body, req["files"]);

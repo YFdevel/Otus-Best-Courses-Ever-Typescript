@@ -1,8 +1,8 @@
-import express,{Request, Response} from "express";
+import express,{Router, Request, Response} from "express";
 import {create} from "../services/reviews.service";
 import {reviewsCollection} from "../services/database.service";
 import {getAll,findById,updateOne,deleteOne, findByAuthorId,findByCourseId} from "../handlers/servicesHandlers";
-const reviewsRouter = express.Router();
+const reviewsRouter = Router();
 
 reviewsRouter.post("/", async (req:Request, res:Response):Promise<void> => {
     const answer = await create(req.body);

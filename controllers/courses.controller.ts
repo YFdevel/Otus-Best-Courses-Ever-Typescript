@@ -1,9 +1,9 @@
-import express,{Request, Response} from "express";
+import express,{Router,Request, Response} from "express";
 import {create} from "../services/courses.service";
 import {coursesCollection,usersCollection} from "../services/database.service";
 import {getAll,findById,updateOne,deleteOne, findByAuthorId} from "../handlers/servicesHandlers";
 import {checkAuth} from "../handlers/checkAccess";
-const coursesRouter = express.Router();
+const coursesRouter = Router();
 
 coursesRouter.post("/", async (req:Request, res:Response):Promise<void> => {
     const answer = await create(req.body);
